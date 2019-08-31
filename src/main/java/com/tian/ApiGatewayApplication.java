@@ -2,11 +2,13 @@ package com.tian;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
 /**
- * @EnableZuulProxy 注解开启zuul功能.
+ * @EnableZuulProxy 注解开启zuul网关功能.
+ * @EnableEurekaClient 把网关地址也注册到注册中心
  *
  * 对外统一的网关,
  *
@@ -15,6 +17,7 @@ import org.springframework.context.annotation.Bean;
  *
  */
 @EnableZuulProxy
+@EnableEurekaClient
 @SpringBootApplication
 public class ApiGatewayApplication {
 
