@@ -20,6 +20,7 @@ public class AccessFilter extends ZuulFilter {
     /**
      * 过滤器的类型, 它决定了过滤器在哪个生命周期被执行,
      * 这里的"pre"代表会在请求路由前执行.
+     * post 表示之后执行
      * @return
      */
     @Override
@@ -66,6 +67,7 @@ public class AccessFilter extends ZuulFilter {
             log.warn("access token is empty.");
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
+            ctx.setResponseBody("请先登录");
             return null;
         }
 
